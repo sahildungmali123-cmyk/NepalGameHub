@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nepal Game Hub</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:url('immage/bg.jpeg') center/cover fixed;
+color:white;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(8px);
+position:sticky;
+top:0;
+z-index:10;
+
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:8px;
+font-weight:bold;
+font-size:20px;
+}
+
+.logo img{
+width:32px;
+height:32px;
+border-radius:6px;
+}
+
+.search-box{
+padding:5px 1px;
+border:none;
+border-radius:20px;
+outline:none;
+margin-right: 100px;
+
+
+}
+
+.container{
+padding:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+
+
+.card{
+background:rgba(0,0,0,0.6);
+padding:10px;
+border-radius:14px;
+text-align:center;
+transition:0.3s;
+
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.card img{
+width:99%;
+border-radius:10px;
+}
+
+.buy{
+margin-top:10px;
+padding:10px 14px;
+border:none;
+border-radius:20px;
+background:#39ff14;
+font-weight:bold;
+cursor:pointer;
+}
+
+.hot-deals{
+margin:40px auto;
+width:220px;
+text-align:center;
+padding:12px;
+background:red;
+border-radius:12px;
+font-weight:bold;
+animation:pulse 1s infinite;
+
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+footer{
+margin-top:60px;
+background:#000;
+padding:40px 20px;
+text-align: center;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.footer-title{
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:30px;
+font-size:14px;
+opacity:0.7;
+}
+
+@media(max-width:900px){
+.container{grid-template-columns:repeat(2,1fr);} 
+.footer-grid{grid-template-columns:1fr;}
+}
+.hotdeals {
+  text-align: center;
+  background-color: crimson;
+  padding: 12px;
+  color: black;
+  font-size: large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  animation: pulse 1.5s infinite;
+}
+.cp {
+  text-align: center;
+  margin-left: 90px;
+  margin-right: 80px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.av {
+  text-align: center;
+  background-color: #14b1ff;
+  padding: 7px;
+  margin-left: 90px;
+  margin-right: 90px;
+  border-radius: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #000;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<img src="immage/logo.jpeg" alt="logo">
+<span>Nepal_Game_Hub</span>
+</div>
+<input type="text" id="search" class="search-box" placeholder="Search games...">
+</header>
+
+<p class="hotdeals">HOT DEALS</p>
+
+<p class="cp">Get the most palyed games at cheapest price</p>
+<p class="av">Available Games</p>
+
+
+<div class="container" id="games"></div>
+
+<div class="hot-deals">HOT DEALS</div>
+
+<footer>
+<div class="footer-grid">
+
+<div>
+<div class="footer-title">Nepal Game Hub</div>
+<p>Best place to buy digital games. Fast delivery and trusted service.
+</p>
+</div>
+
+<div>
+<div class="footer-title">Popular Games</div>
+<p>GTA V</p>
+<p>God of War</p>
+<p>Minecraft</p>
+<p>Red Dead Redemption 2</p>
+<p>Ghost of tsushima</p>
+</div>
+
+<div>
+<div class="footer-title">Contact</div>
+<p>Orders via Instagram DM</p>
+<p>Fast response support</p>
+<p>insta:@Nepal_Game_Hub</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Nepal Game Hub - All rights reserved
+</div>
+</footer>
+
+<script>
+const instagramUsername = "Nepal_Game_Hub";
+
+const games=[
+{name:"The Last of Us", img:"immage/thelastofus.jpeg"},
+{name:"God of War Ragnarok", img:"immage/gow.jpeg"},
+{name:"Spider Man 2", img:"immage/spider.jpeg"},
+{name:"Forza Horizon 5", img:"immage/fh.jpeg"},
+{name:"Red Dead Redemption 2", img:"immage/rdr.jpeg"},
+{name:"GTA V", img:"immage/gtav.jpg"},
+{name:"Ghost of Tsushima", img:"immage/got.jpeg"},
+{name:"Palworld", img:"immage/pw.jpeg"},
+{name:"Black Myth Wukong", img:"immage/wukong.jpeg"},
+{name:"Uncharted 4", img:"immage/uncharted.jpg"},
+{name:"Minecraft", img:"immage/minecraft.avif"},
+{name:"230+ Steam Bundle", img:"immage/more.png"},
+{name:"Steam Bundle", img:"immage/gmebundle.jpg"},
+{name:"GTA III", img:"immage/3.jpg"},
+{name:"HITMAN Bundle", img:"immage/hm.jpeg"},
+{name:"GTA IV", img:"immage/4.webp"},
+{name:"BULLY", img:"immage/bully.jpg"},
+{name:"Assisian creed", img:"immage/aco.webp"},
+{name:"ELDERN RING", img:"immage/er.jpg"},
+{name:"CyberPunk 2077", img:"immage/cp.avif"},
+{name:"Resident evil 4", img:"immage/re4.avif"},
+{name:"watch dogs 2", img:"immage/wd.webp"},
+{name:"assasian creed", img:"immage/ac.jpg"},
+{name:"assasian creed rouge", img:"immage/acr.webp"},
+{name:"hogward legacy", img:"immage/hl.webp"},
+{name:"OutLast", img:"immage/o.jpg"},
+{name:"MAFIA", img:"immage/mafia.avif"},
+{name:"Mafia 2", img:"immage/mafia 2.avif"},
+{name:"Mafia 3", img:"immage/mafia3.jpg"},
+{name:"DyingLight 2", img:"immage/dl.avif"},
+{name:"Detroit Become Human", img:"immage/detroit.avif"},
+{name:"Call of Duty Ghost", img:"immage/cod.jpg"},
+{name:"Call of Duty Black Opps", img:"immage/codbo.jpg"},
+{name:"Little NightMare 2", img:"immage/lm.avif"},
+{name:"WWE 2k25", img:"immage/wwe.jpg"},
+{name:"Tomnb Rider", img:"immage/tr.jpg"},
+{name:"Resident evil village", img:"immage/rev.jpg"},
+{name:"FC 2025", img:"immage/fc2025.jpg"},
+];
+
+const container=document.getElementById("games");
+const search=document.getElementById("search");
+
+function sendOrder(gameName){
+
+const message = encodeURIComponent("Hello! I want to buy: " + gameName);
+
+const url = `https://ig.me/m/${instagramUsername}?text=${message}`;
+
+window.location.href = url;
+
+}
+
+function displayGames(list){
+
+container.innerHTML="";
+
+list.forEach(game=>{
+
+const card=document.createElement("div");
+card.className="card";
+
+card.innerHTML=`
+<img src="${game.img}">
+<h4>${game.name}</h4>
+<button class="buy">BUY NOW</button>
+`;
+
+card.querySelector(".buy").onclick=()=>sendOrder(game.name);
+
+container.appendChild(card);
+
+});
+}
+
+search.addEventListener("input",()=>{
+
+const value=search.value.toLowerCase();
+const filtered=games.filter(g=>g.name.toLowerCase().includes(value));
+
+displayGames(filtered);
+
+});
+
+displayGames(games);
+
+</script>
+
+</body>
+</html>
